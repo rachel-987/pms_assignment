@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: pms_assignment
+  datasource:
+    username: sa
+    password: Abc123456@
+    url: jdbc:sqlserver://localhost:1433;databaseName=pms_assignment;encrypt=true;trustServerCertificate=true
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      show-sql: auto
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+
+server:
+  port: 8080
+
