@@ -33,7 +33,6 @@ public class PostController {
     }
 
     // UPDATE
-
     @PreAuthorize("hasRole('ADMIN') or hasRole('EDITOR')")
     @PutMapping("/{id}")
     public ResponseEntity<PostResponse> updatePost(@PathVariable UUID id, @RequestBody UpdatePostRequest request) {

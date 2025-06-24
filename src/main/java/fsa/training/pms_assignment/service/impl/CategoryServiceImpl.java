@@ -22,6 +22,16 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryMapper = categoryMapper;
     }
 
+    @Override
+    public void seedCategory() {
+        for (int i = 1; i <= 5; i++)
+        {
+            CreateCategoryRequest categoryRequest = new CreateCategoryRequest("Category " + i, "Description " + i, true);
+            Category category = categoryMapper.toEntity(categoryRequest);
+            categoryRepository.save(category);
+        }
+    }
+
     public CategoryResponse createCategory(CreateCategoryRequest request) {
         Category category = categoryMapper.toEntity(request);
         categoryRepository.save(category);

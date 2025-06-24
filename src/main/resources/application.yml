@@ -13,7 +13,15 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.SQLServerDialect
+  batch:
+    initialize-schema: always     # Create tables for batch if these tables aren't existed (BATCH_JOB_INSTANCE, BATCH_JOB_EXECUTION,...)
+    job:
+      enabled: false              # Don't auto-run when app start ~ controlled by controller or scheduler
 
 server:
   port: 8080
 
+job:
+  seeding-job:
+    step3:
+      in: file:D:/Programming/Java/pms_assignment/data/posts.csv 

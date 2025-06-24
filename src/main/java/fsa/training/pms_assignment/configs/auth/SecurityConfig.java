@@ -45,12 +45,21 @@ public class SecurityConfig {
                                 "/api/posts/author",
                                 "/api/posts/category/**"
                         ).permitAll()
-                        // 🔓 Public endpoints cho CATEGORIES
+                        // Public endpoints cho CATEGORIES
                         .requestMatchers(
                                 "/api/categories",
                                 "/api/categories/active",
-                                "/api/categories/{id}"
+                                "/api/categories/{id}",
+                                "/api/categories/seed"
                         ).permitAll()
+                        .requestMatchers(
+                                "/job/test-job-step1-and-2",
+                                "/job/test-job-step3",
+                                "/job/test-job-step4",
+                                "/job/test-job-step5",
+                                "/job/test-full-job"
+                        ).permitAll()
+
                         .requestMatchers("/admin/**").hasRole("ADMIN") // Role mà bạn set là 'ROLE_ADMIN' -> hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )

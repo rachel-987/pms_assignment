@@ -3,7 +3,9 @@ package fsa.training.pms_assignment.web;
 import fsa.training.pms_assignment.dto.request.category.CreateCategoryRequest;
 import fsa.training.pms_assignment.dto.request.category.UpdateCategoryRequest;
 import fsa.training.pms_assignment.dto.response.category.CategoryResponse;
+import fsa.training.pms_assignment.entity.auth.User;
 import fsa.training.pms_assignment.service.CategoryService;
+import fsa.training.pms_assignment.utils.enums;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +21,13 @@ public class CategoryController {
 
     public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
+    }
+
+
+    @PostMapping("seed")
+    public String seedCategories() {
+        categoryService.seedCategory();
+        return "Seeded Category successfully!";
     }
 
     // CREATE

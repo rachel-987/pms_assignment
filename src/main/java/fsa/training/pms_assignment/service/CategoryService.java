@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.UUID;
 
 public interface CategoryService {
+
+    void seedCategory();
+
     CategoryResponse createCategory(CreateCategoryRequest request);
 
     List<CategoryResponse> getAllCategories();
